@@ -51,8 +51,6 @@ export class DetailComponent implements OnInit {
         data => {
           const filteredApp = data.data.children.filter(app => app.data.id === params['id']);
           this.app = filteredApp.length ? filteredApp[0].data : {};
-
-          console.log(this.app);
         },
         err => {
           console.log('Something went wrong!');
