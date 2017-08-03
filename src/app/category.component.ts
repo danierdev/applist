@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-category',
@@ -8,26 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
         <p class="large">
           <b><i class="fa fa-hashtag fa-fw text-teal"></i>Categories</b>
         </p>
-        <p><a href="#">Games</a></p>
-        <p><a href="#">Shopping</a></p>
-        <p><a href="#">Educational</a></p>
-        <p><a href="#">Health & Fitness</a></p>
-        <p><a href="#">Entertainment</a></p>
-        <p><a href="#">Business</a></p>
-        <p><a href="#">Productivity</a></p>
+        <p *ngFor="let cat of categories">
+          <a [routerLink]="['/list']" [queryParams]="{cat: cat}" routerLinkActive="active">{{ cat | humanize }}</a>
+        </p>
       </div>
     </div>
-  `,
-  styles: []
+  `
 })
-export class CategoryComponent implements OnInit {
-
+export class CategoryComponent {
   @Input()
   categories: any[] = [];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

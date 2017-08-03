@@ -6,8 +6,8 @@ import { DetailComponent } from './detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
-  { path: 'list', component: ListComponent, data: { title: 'List' } },
-  { path: 'list/:id', component: DetailComponent, data: { title: 'Detail' } },
+  { path: 'list', component: ListComponent },
+  { path: 'detail/:id', component: DetailComponent },
   { path: '**', redirectTo: 'list', pathMatch: 'full' }
 ];
 
